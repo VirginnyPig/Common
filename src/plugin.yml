@@ -1,0 +1,16 @@
+name: Common
+main: com.legit2.hqm.Common.Common
+version: 0.1
+commands:
+    common:
+        description: Important information.
+        permission: console.info
+    commonplayer:
+        description: Important information for the player.
+        permission: console.info
+    commonconsole:
+        description: Important information for the console.
+permissions:
+    common.info:
+        description: Allows viewing of important information.
+        default: true
