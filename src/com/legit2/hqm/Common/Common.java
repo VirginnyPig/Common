@@ -4,9 +4,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Common extends JavaPlugin
 {
-	
 	public CListener listener;
-	CFlatFile SAVE;
 	
 	@Override
 	public void onEnable()
@@ -14,17 +12,18 @@ public class Common extends JavaPlugin
 		// Initialize plugin
 		new CConfig(this);
 		
+		CDatabase.intitializeHandler();
 		loadCommands();
 		loadListeners();
-		loadDatabase();
 
 		CUtil.consoleMSG("info", "Enabled!");
 	}
 
 	@Override
 	public void onDisable()
-	{
-		unloadDatabase();
+	{	
+		// Uninitialize plugin
+		CDatabase.uninitializeHandler();
 		
 		CUtil.consoleMSG("info", "Disabled!");
 	}
@@ -47,27 +46,5 @@ public class Common extends JavaPlugin
 		
 		// Start Listener
 		getServer().getPluginManager().registerEvents(li, this);
-	}
-	
-	private void loadDatabase()
-	{
-		// Check if MySQL is true, and if it's even possible to connect.
-		if(CSettings.mysql && CDatabase.checkConnection()) CDatabase.initializeDatabase();
-		else
-		{
-			SAVE = new CFlatFile(this.getDataFolder().toString());
-			
-		}
-	}
-	
-	private void unloadDatabase()
-	{
-		// Check if MySQL is true, and if it's even possible to connect.
-		if(CSettings.mysql && CDatabase.checkConnection()) CDatabase.uninitializeDatabase();
-		else
-		{
-			
-			
-		}
 	}
 }
