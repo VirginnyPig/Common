@@ -2,7 +2,10 @@ package com.legit2.hqm.Common;
 
 import java.util.logging.Logger;
 
+import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
 
 public class CUtil {
 
@@ -44,4 +47,47 @@ public class CUtil {
 		return player.hasPermission(permission);
 	}
 
+	/*
+	 *  noPermission : Displays a message to (Player)player and then returns true.
+	 */
+	public static boolean noPermission(Player player)
+	{
+		// CommandSender does not have permission to run command.
+		player.sendMessage(ChatColor.RED + "You do not have permission to run this command.");
+		return true;
+	}
+	
+	/*
+	 *  noConsole : Displays a message to (CommandSender)sender and then returns true.
+	 */
+	public static boolean noConsole(CommandSender sender)
+	{
+		// Sender was not a player, send message
+		sender.sendMessage("This command can only be executed by a player.");
+		return true;
+	}
+	
+	/*
+	 *  noPlayer : Displays a message to (CommandSender)sender and then returns true.
+	 */
+	public static boolean noPlayer(CommandSender sender)
+	{
+		// Sender was not the console, send message
+		sender.sendMessage("This command can only be executed by the console.");
+		return true;
+	}
+	
+	/*
+	 *  definePlayer : Defines the player from (CommandSender)sender.
+	 */
+	public static Player definePlayer(CommandSender sender)
+	{
+		// Define player
+		Player player = null;
+		if (sender instanceof Player)
+		player = (Player) sender;
+		
+		return player;
+	}	
+	
 }

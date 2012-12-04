@@ -1,15 +1,18 @@
 package com.legit2.hqm.Common;
 
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Common extends JavaPlugin
-{
 
+public class Common extends JavaPlugin implements Listener
+{
+	
 	@Override
 	public void onEnable()
 	{
 		// Inizialize plugin
 		loadCommands();
+		loadListeners();
 
 		CUtil.consoleMSG("info", "Enabled!");
 	}
@@ -19,7 +22,7 @@ public class Common extends JavaPlugin
 	{
 		CUtil.consoleMSG("info", "Disabled!");
 	}
-
+	
 	private void loadCommands()
 	{
 		CCommandExecutor ce = new CCommandExecutor(this);
@@ -30,4 +33,8 @@ public class Common extends JavaPlugin
 		getCommand("commonconsole").setExecutor(ce);
 	}
 	
+	private void loadListeners()
+	{
+		getServer().getPluginManager().registerEvents(this, this);
+	}
 }
