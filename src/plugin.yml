@@ -1,6 +1,7 @@
 name: Common
 main: com.legit2.hqm.Common.Common
 version: 0.1
+depend: [SQLibrary]
 commands:
     common:
         description: Important information.
