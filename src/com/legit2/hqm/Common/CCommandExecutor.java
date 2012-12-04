@@ -52,7 +52,7 @@ public class CCommandExecutor implements CommandExecutor
 	}
 	
 	/*
-	 * Command 'common'
+	 * Command 'commonconsole'
 	 */
 	public static Boolean commonConsole(CommandSender sender)
 	{
