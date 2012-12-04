@@ -2,11 +2,11 @@ package com.legit2.hqm.Common;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-
 public class Common extends JavaPlugin
 {
 	
 	public CListener listener;
+	CFlatFile SAVE;
 	
 	@Override
 	public void onEnable()
@@ -53,13 +53,21 @@ public class Common extends JavaPlugin
 	{
 		// Check if MySQL is true, and if it's even possible to connect.
 		if(CSettings.mysql && CDatabase.checkConnection()) CDatabase.initializeDatabase();
-		else CFlatFile.initializeFlatFile();
+		else
+		{
+			SAVE = new CFlatFile(this.getDataFolder().toString());
+			
+		}
 	}
 	
 	private void unloadDatabase()
 	{
 		// Check if MySQL is true, and if it's even possible to connect.
 		if(CSettings.mysql && CDatabase.checkConnection()) CDatabase.uninitializeDatabase();
-		else CFlatFile.uninitializeFlatFile();
+		else
+		{
+			
+			
+		}
 	}
 }

@@ -11,8 +11,6 @@ import org.bukkit.event.player.PlayerLoginEvent;
 @SuppressWarnings("unused")
 public class CListener implements Listener
 {
-	
-
 private static Common plugin;
 	
 	public CListener(Common common)
@@ -32,8 +30,5 @@ private static Common plugin;
 		ResultSet result = null;
 		
 		CUtil.consoleMSG("info", username + " just logged in!");
-		
-		
 	}
-	
 }
