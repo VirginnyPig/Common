@@ -15,7 +15,8 @@ public class CListener implements Listener
 
 private static Common plugin;
 	
-	public CListener(Common common) {
+	public CListener(Common common)
+	{
 		plugin = common;
 	}
 	

@@ -6,11 +6,13 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CCommandExecutor implements CommandExecutor{
+public class CCommandExecutor implements CommandExecutor
+{
 	
 	static Common plugin;
 	
-	public CCommandExecutor(Common common) {
+	public CCommandExecutor(Common common)
+	{
 		plugin = common;
 	}
 	
