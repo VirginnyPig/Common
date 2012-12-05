@@ -1,0 +1,10 @@
+#Global Settings
+database:
+    mysql:
+        use: true
+        dbName: minecraft
+        username: root
+        password:
+        host: localhost
+        port: 3306
+        tableName: mc_common
